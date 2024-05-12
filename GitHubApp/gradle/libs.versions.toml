@@ -11,7 +11,7 @@ composeBom = "2024.05.00"
 androidx-lifecycle = "2.7.0"
 
 # DI
-daggerHilt = "2.44"
+daggerHilt = "2.48"
 
 # Network & Serialization
 kotlinx-serialization = "1.6.3"
