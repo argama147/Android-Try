@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.kotlinserialization)
     id("kotlin-kapt")
+    alias(libs.plugins.com.google.dagger.hilt.android)
 }
 
 android {
