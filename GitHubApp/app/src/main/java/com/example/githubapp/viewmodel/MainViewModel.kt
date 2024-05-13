@@ -50,26 +50,22 @@ class MainViewModel @Inject constructor(
     val uiState: MutableState<UiState> = mutableStateOf(UiState.Initial)
 
     /**
-     * 検索フォームに入力された文字列を表すMutableState
-     */
-    val searchQuery: MutableState<String> = mutableStateOf("")
-
-    /**
      * 検索を実行する。
      *
      * searchQueryから検索フォームに入力された文字列を取得し、
      * Repositoryを経由してユーザを問い合わせる。
      */
-    fun onSearchTapped() {
-        val searchQuery: String = searchQuery.value
-
+    fun onSearchTapped(searchQuery: String) {
         viewModelScope.launch {
             uiState.value = UiState.Loading
             runCatching {
+                println("searchQuery=$searchQuery")
                 userRepository.getUser(userName = searchQuery)
             }.onSuccess {
                 uiState.value = UiState.Success(user = it)
+                println("searchQuery user=$it")
             }.onFailure {
+                println("searchQuery failed $it")
                 uiState.value = UiState.Failure
             }
         }
