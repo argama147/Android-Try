@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import com.example.githubapp.ui.theme.GitHubAppTheme
 import com.example.githubapp.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint

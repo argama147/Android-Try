@@ -11,6 +11,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.example.githubapp.R
 
 /**
  * 検索キーワードの入力フォームと検索実行ボタンの表示
@@ -25,7 +27,7 @@ fun SearchView(
         }
         TextField(
             label = {
-                Text("GitHubのアカウントを入力")
+                Text(stringResource(id = R.string.enter_gitHub_account))
             },
             value = nowSearchQuery,
             onValueChange = { text ->
@@ -39,7 +41,7 @@ fun SearchView(
             }
         ) {
             Text(
-                text = "検索"
+                text = stringResource(id = R.string.search)
             )
         }
     }
