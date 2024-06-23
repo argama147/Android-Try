@@ -18,16 +18,20 @@ classDiagram
     DaggerHilt ..> UserRepositoryModule : use
     UserRepositoryModule ..> UserRepositoryImpl : inject
 
+    UserRepositoryImpl ..> GitHubUser : use
+    GitHubUser ..> User : create
+    User ..> UserId : use
+    User ..> NetworkImage : use
+    User ..> Url : use
+
     DaggerHilt ..> MainViewModel : inject
 
     MainViewModel *-- UserRepository
     
     namespace Retrofit {
         class Builder {
-
         }
     }
-
 
     class ApiClientProvider {
         +provide() ApiClient
@@ -58,6 +62,13 @@ classDiagram
     }
 
 
+    class GitHubUser {
+        +String id
+        +String name
+        +String avatarUrl
+        +String blog
+        +toUser() User
+    }
 
     class User{
         +UserId userId
